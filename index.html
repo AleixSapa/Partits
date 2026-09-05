@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Partits — resultats, alineacions, classificacions i fitxatges de futbol." />
+  <title>Partits FC · Futbol en directe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inici"><span class="brand-ball">⚽</span><span>PARTITS<span class="brand-dot">.</span></span></a>
+    <nav class="nav" aria-label="Navegació principal">
+      <a class="active" href="#inici">Inici</a>
+      <a href="#partits">Partits</a>
+      <a href="#classificacio">Classificació</a>
+      <a href="#alineacions">Alineacions</a>
+      <a href="#fitxatges">Fitxatges</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Obrir menú">☰</button>
+  </header>
+
+  <main id="inici">
+    <section class="hero wrap">
+      <div>
+        <div class="eyebrow"><span class="live-dot"></span> FUTBOL EN DIRECTE</div>
+        <h1>Tot el futbol.<br><span>En un sol lloc.</span></h1>
+        <p>Resultats, partits, alineacions, classificacions i els últims fitxatges.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#partits">Veure partits</a>
+          <a class="btn ghost" href="#classificacio">Classificació →</a>
+        </div>
+      </div>
+      <div class="score-hero">
+        <div class="score-head"><span>EN DIRECTE</span><span id="clock">--:--:--</span></div>
+        <div class="score-teams"><div><span class="crest blue">B</span><strong>Barça</strong></div><div class="big-score"><b id="liveHome">2</b><em>—</em><b id="liveAway">1</b></div><div><span class="crest red">R</span><strong>Real Madrid</strong></div></div>
+        <div class="minute"><span class="live-pill">● LIVE</span> 67'</div>
+      </div>
+    </section>
+
+    <section id="partits" class="wrap section">
+      <div class="section-title"><div><span class="eyebrow">AVUI</span><h2>Partits</h2></div><div class="filters"><button class="filter active">Tots</button><button class="filter">LaLiga</button><button class="filter">Champions</button></div></div>
+      <div class="match-grid" id="matches"></div>
+    </section>
+
+    <section id="classificacio" class="wrap section split">
+      <div class="panel standings">
+        <div class="panel-title"><div><span class="eyebrow">TEMPORADA 2026/27</span><h2>Classificació</h2></div><span class="league-badge">LaLiga</span></div>
+        <div class="table-wrap"><table><thead><tr><th>#</th><th>Equip</th><th>PJ</th><th>DG</th><th>Pts</th></tr></thead><tbody id="standings"></tbody></table></div>
+        <a class="text-link" href="#classificacio">Veure classificació completa →</a>
+      </div>
+      <div class="panel news-panel">
+        <div class="panel-title"><div><span class="eyebrow">ACTUALITAT</span><h2>Últimes notícies</h2></div></div>
+        <article class="news"><span class="news-icon">⚡</span><div><small>Fa 12 min</small><h3>Gran partit aquesta nit: consulta el resultat en directe.</h3></div></article>
+        <article class="news"><span class="news-icon">🔵</span><div><small>Fa 1 h</small><h3>Els equips preparen les seves alineacions.</h3></div></article>
+        <article class="news"><span class="news-icon">🔄</span><div><small>Fa 3 h</small><h3>Mercat de fitxatges: les novetats del dia.</h3></div></article>
+      </div>
+    </section>
+
+    <section id="alineacions" class="wrap section">
+      <div class="section-title"><div><span class="eyebrow">EQUIPS</span><h2>Alineacions</h2></div><select id="teamSelect" aria-label="Selecciona un equip"><option value="barca">FC Barcelona</option><option value="madrid">Real Madrid</option><option value="city">Manchester City</option></select></div>
+      <div class="lineup-card">
+        <div class="team-summary"><span class="crest blue big">B</span><div><h3 id="lineupName">FC Barcelona</h3><p>4-3-3 · Titulars</p></div></div>
+        <div class="pitch" id="pitch"></div>
+        <div class="bench"><b>Suplents</b><span id="benchPlayers"></span></div>
+      </div>
+    </section>
+
+    <section id="fitxatges" class="wrap section">
+      <div class="section-title"><div><span class="eyebrow">MERCAT</span><h2>Nous fitxatges</h2></div><button class="btn small ghost" id="showAllTransfers">Veure tots</button></div>
+      <div class="transfer-grid" id="transfers"></div>
+    </section>
+  </main>
+
+  <footer><div class="wrap footer-inner"><div class="brand">⚽ PARTITS<span class="brand-dot">.</span></div><span>Fet per als fans del futbol · <span id="year"></span></span><span>Les dades de demostració es poden connectar a una API de resultats.</span></div></footer>
+  <script src="app.js"></script>
+</body>
+</html>
