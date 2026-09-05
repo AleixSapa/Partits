@@ -18,7 +18,6 @@
     </nav>
     <button class="menu-btn" id="menuBtn" aria-label="Obrir menú" aria-expanded="false">☰</button>
   </header>
-
   <main id="inici">
     <section class="hero wrap">
       <div>
@@ -28,54 +27,31 @@
         <div class="hero-actions"><a class="btn primary" href="#partits">Veure partits</a><a class="btn ghost" href="#classificacio">Classificació →</a></div>
       </div>
       <div class="score-hero">
-        <div class="score-head"><span id="liveLabel">EN DIRECTE</span><span id="clock">--:--:--</span></div>
-        <div class="score-teams" id="heroScore"><div><span class="crest blue">⚽</span><strong>Carregant...</strong></div><div class="big-score"><b>—</b><em>—</em><b>—</b></div><div><span class="crest red">⚽</span><strong>Esperant dades</strong></div></div>
-        <div class="minute" id="heroMinute" aria-live="polite">Actualitzant...</div>
+        <div class="score-head"><span id="liveLabel">FUTBOL</span><span id="clock">--:--:--</span></div>
+        <div class="score-teams" id="heroScore"><div><span class="crest blue">⚽</span><strong>Esperant dades</strong></div><div class="big-score"><b>—</b><em>—</em><b>—</b></div><div><span class="crest red">⚽</span><strong>Esperant dades</strong></div></div>
+        <div class="minute" id="heroMinute" aria-live="polite">Connectant amb les dades...</div>
       </div>
     </section>
-
     <section id="partits" class="wrap section">
       <div class="section-title"><div><span class="eyebrow">AVUI</span><h2>Partits</h2></div><div class="filters"><button class="filter active" data-filter="Tots">Tots</button><button class="filter" data-filter="LaLiga">LaLiga</button><button class="filter" data-filter="Champions">Champions</button></div></div>
-      <div class="data-note" id="matchesStatus" aria-live="polite">Carregant resultats...</div>
+      <div class="data-note" id="matchesStatus" aria-live="polite">Connectant amb els resultats...</div>
       <div class="match-grid" id="matches"></div>
     </section>
-
     <section id="classificacio" class="wrap section split">
-      <div class="panel standings">
-        <div class="panel-title"><div><span class="eyebrow">TEMPORADA ACTUAL</span><h2>Classificació</h2></div><span class="league-badge">LaLiga</span></div>
-        <div class="table-wrap"><table><thead><tr><th>#</th><th>Equip</th><th>PJ</th><th>DG</th><th>Pts</th></tr></thead><tbody id="standings"><tr><td colspan="5">Carregant...</td></tr></tbody></table></div>
-        <a class="text-link" href="#classificacio">Classificació actualitzada automàticament</a>
-      </div>
-      <div class="panel news-panel">
-        <div class="panel-title"><div><span class="eyebrow">ACTUALITAT</span><h2>Últimes notícies</h2></div></div>
-        <div id="news"><article class="news"><span class="news-icon">📰</span><div><small>Actualitzant</small><h3>Carregant notícies...</h3></div></article></div>
-      </div>
+      <div class="panel standings"><div class="panel-title"><div><span class="eyebrow">TEMPORADA ACTUAL</span><h2>Classificació</h2></div><span class="league-badge">LaLiga</span></div><div class="table-wrap"><table><thead><tr><th>#</th><th>Equip</th><th>PJ</th><th>DG</th><th>Pts</th></tr></thead><tbody id="standings"><tr><td colspan="5">Connectant...</td></tr></tbody></table></div><a class="text-link" href="#classificacio">Classificació actualitzada automàticament</a></div>
+      <div class="panel news-panel"><div class="panel-title"><div><span class="eyebrow">ACTUALITAT</span><h2>Últimes notícies</h2></div></div><div id="news"><article class="news"><span class="news-icon">📰</span><div><small>Actualitzant</small><h3>Connectant amb les notícies...</h3></div></article></div></div>
     </section>
-
     <section id="alineacions" class="wrap section">
       <div class="section-title"><div><span class="eyebrow">EQUIPS</span><h2>Plantilles</h2></div><select id="teamSelect" aria-label="Selecciona un equip"><option value="barca">FC Barcelona</option><option value="madrid">Real Madrid</option><option value="city">Manchester City</option></select></div>
-      <div class="lineup-card"><div class="team-summary"><span class="crest blue big">⚽</span><div><h3 id="lineupName">FC Barcelona</h3><p id="lineupMeta">Carregant plantilla...</p></div></div><div class="pitch" id="pitch"></div><div class="bench"><b>Jugadors</b><span id="benchPlayers">Carregant...</span></div></div>
+      <div class="lineup-card"><div class="team-summary"><span class="crest blue big">⚽</span><div><h3 id="lineupName">FC Barcelona</h3><p id="lineupMeta">Connectant amb la plantilla...</p></div></div><div class="pitch" id="pitch"></div><div class="bench"><b>Jugadors</b><span id="benchPlayers">Connectant...</span></div></div>
       <div class="data-note lineup-note">Les alineacions reals d'un partit es mostren entrant al detall d'un partit.</div>
     </section>
-
     <section id="fitxatges" class="wrap section">
-      <div class="section-title"><div><span class="eyebrow">MERCAT</span><h2>Nous fitxatges</h2></div><button class="btn small ghost" id="showAllTransfers">Actualitzar</button></div>
-      <div class="data-note" id="transfersStatus" aria-live="polite">Carregant moviments...</div>
-      <div class="transfer-grid" id="transfers"></div>
+      <div class="section-title"><div><span class="eyebrow">MERCAT</span><h2>Nous fitxatges</h2></div><button class="btn small ghost" id="showAllTransfers" type="button">Actualitzar</button></div>
+      <div class="data-note" id="transfersStatus" aria-live="polite">Connectant amb els moviments...</div><div class="transfer-grid" id="transfers"></div>
     </section>
   </main>
-
-  <div class="modal" id="matchModal" hidden aria-hidden="true">
-    <div class="modal-backdrop" data-close-modal></div>
-    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" id="closeModal" aria-label="Tancar">×</button>
-      <div class="eyebrow">DETALL DEL PARTIT</div>
-      <h2 id="modalTitle">Carregant...</h2>
-      <p id="modalScore" class="modal-score">—</p>
-      <div id="modalContent" class="modal-content">Carregant alineacions...</div>
-    </section>
-  </div>
-
+  <div class="modal" id="matchModal" hidden aria-hidden="true"><div class="modal-backdrop" data-close-modal></div><section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" id="closeModal" aria-label="Tancar">×</button><div class="eyebrow">DETALL DEL PARTIT</div><h2 id="modalTitle">Carregant...</h2><p id="modalScore" class="modal-score">—</p><div id="modalContent" class="modal-content">Carregant alineacions...</div></section></div>
   <footer><div class="wrap footer-inner"><div class="brand">⚽ PARTITS<span class="brand-dot">.</span></div><span>Fet per als fans del futbol · <span id="year"></span></span><span id="dataSource">Dades actualitzades automàticament</span></div></footer>
   <noscript><div class="wrap empty">Aquesta web necessita JavaScript per carregar resultats i dades en directe.</div></noscript>
   <script src="js/app.js"></script>
