@@ -1,7 +1,7 @@
 FROM nginx:alpine
 
-# Només exposem el frontend; backend, BBDD i altres arxius
-# queden fora del directori servit per Nginx.
+# El frontend és l'únic contingut servit per Nginx.
 COPY frontend/ /usr/share/nginx/html/
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
