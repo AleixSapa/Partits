@@ -1,4 +1,4 @@
-name: Docker build check
+name: Arbitre de qualitat
 
 on:
   push:
@@ -6,12 +6,26 @@ on:
   pull_request:
 
 jobs:
-  build:
+  audit:
+    name: Àrbitre — proves automàtiques
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Build image
+      - name: Auditoria estàtica
+        run: python3 tests/auditor.py
+      - name: Build Docker
         run: docker build --pull -t partits-test .
-      - name: Validate Nginx configuration
+      - name: Validar Nginx
         run: docker run --rm partits-test nginx -t
+      - name: Arrencar web
+        run: docker run -d --name partits-web -p 8080:80 partits-test
+      - name: Comprovar salut
+        run: curl --fail --retry 5 --retry-delay 2 http://127.0.0.1:8080/health
+      - name: Comprovar pàgina
+        run: curl --fail --retry 5 --retry-delay 2 http://127.0.0.1:8080/ | grep -q 'PARTITS'
+      - name: Comprovar proxy de dades
+        run: curl --fail --retry 5 --retry-delay 2 --max-time 20 http://127.0.0.1:8080/api/esp.1/scoreboard | grep -q 'events'
+      - name: Aturar contenidor
+        if: always()
+        run: docker rm -f partits-web || true
